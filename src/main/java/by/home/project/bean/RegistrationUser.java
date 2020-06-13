@@ -13,7 +13,6 @@ public class RegistrationUser implements Serializable {
 	private String phoneNumber;
 	
 	public RegistrationUser() {
-	
 	}
 
 	public RegistrationUser(String email, String password, String name, String surname, String phoneNumber) {
