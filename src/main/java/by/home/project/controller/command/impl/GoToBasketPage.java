@@ -25,7 +25,7 @@ public class GoToBasketPage implements Command {
 	private static final String ATTRIBUTE_NAME_BASKET = "basket";
 	private static final String ATTRIBUTE_NAME_BASKET_LIST = "basketList";
 	private List<Integer> basketGoodsIDList = new ArrayList<Integer>();
-	private static Logger logger = Logger.getLogger(Class.class.getName());
+	private static Logger logger = Logger.getLogger(GoToBasketPage.class.getName());
 
 	@SuppressWarnings("unchecked")
 	@Override
