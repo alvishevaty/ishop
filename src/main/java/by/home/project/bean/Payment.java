@@ -1,7 +1,6 @@
 package by.home.project.bean;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class Payment implements Serializable {
 
