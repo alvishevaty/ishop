@@ -28,7 +28,7 @@ public class GoToCatalogPage implements Command {
 	private static final String ATTRIBUTE_NAME_GOODS_LIST = "goodsList";
 	private static final String GENDER_PARAMETER = "gender";
 	private static final String CATEGORY_PARAMETER = "category";
-	private static Logger logger = Logger.getLogger(Class.class.getName());
+	private static Logger logger = Logger.getLogger(GoToCatalogPage.class.getName());
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
