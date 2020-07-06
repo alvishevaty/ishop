@@ -28,7 +28,7 @@ public final class ConnectionPool {
 
 	private BlockingQueue<Connection> connectionQueue;
 	private BlockingQueue<Connection> givenAwayConQueue;
-	private static Logger logger = Logger.getLogger(Class.class.getName());
+	private static Logger logger = Logger.getLogger(ConnectionPool.class.getName());
 
 	private String driverName;
 	private String url;
