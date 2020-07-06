@@ -23,7 +23,7 @@ public class GoToUserInfoPage implements Command {
 	private static final String ERROR_PAGE = "Controller?command=gotoerrorpage";
 	private static final String ATTRIBUTE_NAME_USER = "user";
 	private static final String ATTRIBUTE_NAME_USER_INFO = "userInfo";
-	private static Logger logger = Logger.getLogger(Class.class.getName());
+	private static Logger logger = Logger.getLogger(GoToUserInfoPage.class.getName());
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
