@@ -48,11 +48,11 @@ public class Registration implements Command{
 				User user = userService.signIn(email, password);
 				session.setAttribute(ATTRIBUTE_NAME_USER, user);
 				response.sendRedirect(MAIN_PAGE_REDIRECT);
-            }
+           		}
 			
-            else {
-            	response.sendRedirect(REGISTRATION_ERROR_REDIRECT);
-            }
+           		 else {
+            			response.sendRedirect(REGISTRATION_ERROR_REDIRECT);
+           		 }
 
 		} catch (ServiceException e) {
 			response.sendRedirect(REGISTRATION_ERROR_REDIRECT);
