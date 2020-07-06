@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import by.home.project.bean.User;
 import by.home.project.bean.UserInfo;
 import by.home.project.controller.command.Command;
@@ -21,6 +23,7 @@ public class GoToUserInfoPage implements Command {
 	private static final String ERROR_PAGE = "Controller?command=gotoerrorpage";
 	private static final String ATTRIBUTE_NAME_USER = "user";
 	private static final String ATTRIBUTE_NAME_USER_INFO = "userInfo";
+	private static Logger logger = Logger.getLogger(GoToUserInfoPage.class.getName());
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -41,6 +44,7 @@ public class GoToUserInfoPage implements Command {
 			RequestDispatcher dispatcher = request.getRequestDispatcher(USER_PROFILE_PAGE);
 			dispatcher.forward(request, response);
 		} catch (ServiceException e) {
+			logger.error("Error during redirect to user info page.", e);
 			response.sendRedirect(ERROR_PAGE);
 		}
 

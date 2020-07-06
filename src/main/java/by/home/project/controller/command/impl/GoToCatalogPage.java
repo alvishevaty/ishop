@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import by.home.project.bean.Category;
 import by.home.project.bean.Product;
 import by.home.project.bean.Subcategory;
@@ -26,6 +28,7 @@ public class GoToCatalogPage implements Command {
 	private static final String ATTRIBUTE_NAME_GOODS_LIST = "goodsList";
 	private static final String GENDER_PARAMETER = "gender";
 	private static final String CATEGORY_PARAMETER = "category";
+	private static Logger logger = Logger.getLogger(GoToCatalogPage.class.getName());
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -58,6 +61,7 @@ public class GoToCatalogPage implements Command {
 			dispatcher.forward(request, response);
 
 		} catch (ServiceException e) {
+			logger.error("Error during redirect to catalog page.", e);
 			response.sendRedirect(ERROR_PAGE);
 		}
 		

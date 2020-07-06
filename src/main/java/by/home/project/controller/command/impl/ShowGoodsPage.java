@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import by.home.project.bean.GoodsInfo;
 import by.home.project.controller.command.Command;
 import by.home.project.service.ProductService;
@@ -19,6 +21,7 @@ public class ShowGoodsPage implements Command {
 	private static final String GOODS_ID_PARAMETER = "goodsId";
 	private static final String ATTRIBUTE_NAME_PRODUCT = "product";
 	private static final String ERROR_PAGE = "Controller?command=gotoerrorpage";
+	private static Logger logger = Logger.getLogger(ShowGoodsPage.class.getName());
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,6 +39,7 @@ public class ShowGoodsPage implements Command {
 			dispatcher.forward(request, response);
 
 		} catch (ServiceException e) {
+			logger.error("Error during redirect to goods info page.", e);
 			response.sendRedirect(ERROR_PAGE);
 		}
 	}

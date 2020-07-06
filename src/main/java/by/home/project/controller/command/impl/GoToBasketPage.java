@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+
 import by.home.project.bean.Product;
 import by.home.project.controller.command.Command;
 import by.home.project.service.ProductService;
@@ -19,9 +21,11 @@ import by.home.project.service.factory.ServiceFactory;
 public class GoToBasketPage implements Command {
 
 	private static final String BASKET_PAGE = "/WEB-INF/jsp/basket.jsp";
+	private static final String ERROR_PAGE = "Controller?command=gotoerrorpage";
 	private static final String ATTRIBUTE_NAME_BASKET = "basket";
 	private static final String ATTRIBUTE_NAME_BASKET_LIST = "basketList";
 	private List<Integer> basketGoodsIDList = new ArrayList<Integer>();
+	private static Logger logger = Logger.getLogger(GoToBasketPage.class.getName());
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -53,7 +57,8 @@ public class GoToBasketPage implements Command {
 			}
 
 		} catch (ServiceException e) {
-
+			logger.error("Error during redirect to basket page.", e);
+			response.sendRedirect(ERROR_PAGE);
 		}
 
 	}
