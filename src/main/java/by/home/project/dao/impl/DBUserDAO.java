@@ -26,12 +26,12 @@ public class DBUserDAO implements UserDAO {
 	private static final String SURNAME = "surname";
 	private static final String PHONE_NUMBER = "phoneNumber";
 	private static final String EMAIL = "email";
+	
+	private static final ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
+	private static final ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 	@Override
 	public User signIn(String email, String password) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -76,9 +76,6 @@ public class DBUserDAO implements UserDAO {
 			return false;
 		}
 
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
-
 		Connection con = null;
 		PreparedStatement ps = null;
 
@@ -108,9 +105,6 @@ public class DBUserDAO implements UserDAO {
 
 	@Override
 	public boolean checkEmailAccessibility(String email) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -142,9 +136,6 @@ public class DBUserDAO implements UserDAO {
 
 	@Override
 	public UserInfo takeUserInfo(int userId) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;

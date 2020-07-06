@@ -28,14 +28,13 @@ public class Controller extends HttpServlet {
 		String commandName = request.getParameter(COMMAND_PARAMETER);
 		Command executionCommand = commandProvider.getCommand(commandName);
 		executionCommand.execute(request, response);
-
 		request.getSession(true).setAttribute(ATTRIBUTE_NAME_LAST_REQUEST,
 				request.getRequestURI() + "?" + request.getQueryString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		String commandName = request.getParameter(COMMAND_PARAMETER);
 		Command executionCommand = commandProvider.getCommand(commandName);
 		executionCommand.execute(request, response);

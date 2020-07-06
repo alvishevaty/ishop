@@ -23,6 +23,7 @@ public class GoToBasketPage implements Command {
 	private static final String ATTRIBUTE_NAME_BASKET_LIST = "basketList";
 	private List<Integer> basketGoodsIDList = new ArrayList<Integer>();
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

@@ -47,8 +47,6 @@ public class DBProductDAO implements ProductDAO {
 			+ "FROM goods, subcategory, category, manufacturer "
 			+ "WHERE goods.subcategory_id = subcategory.id AND subcategory.category_id = category.id AND goods.manufacturer_id = manufacturer.id AND goods.id = ?";
 
-	private static final String UPDATE_GOODS_INFO = "";
-
 	private static final String SELECT_GOODS_INFO = "SELECT goods.id, manufacturer.name as manufacturer, goods.name, goods.description, goods.size, "
 			+ "goods.season, goods.vendor_code as vendorCode, goods.price " + "FROM goods,manufacturer "
 			+ "WHERE goods.manufacturer_id = manufacturer.id AND goods.id = ?";
@@ -64,12 +62,12 @@ public class DBProductDAO implements ProductDAO {
 	private static final String SEASON = "season";
 	private static final String VENDOR_CODE = "vendorCode";
 	private static final String PRICE = "price";
+	
+	private static final ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
+	private static final ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 	@Override
 	public List<Product> allGoodsList(String genderValue) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -119,9 +117,6 @@ public class DBProductDAO implements ProductDAO {
 	@Override
 	public List<Category> allCategoryList() throws DAOException {
 
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
-
 		Connection con = null;
 		Statement st = null;
 		ResultSet rs = null;
@@ -159,9 +154,6 @@ public class DBProductDAO implements ProductDAO {
 	@Override
 	public List<Subcategory> allSubcategoryList(String category) throws DAOException {
 
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
-
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -198,9 +190,6 @@ public class DBProductDAO implements ProductDAO {
 	}
 
 	public List<Product> executeRequest(int number, List<String> keyValue) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -320,9 +309,6 @@ public class DBProductDAO implements ProductDAO {
 	@Override
 	public List<Product> basketGoodsList(List<Integer> basketGoodsIDList) throws DAOException {
 
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
-
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -379,9 +365,6 @@ public class DBProductDAO implements ProductDAO {
 
 	@Override
 	public GoodsInfo goodsInfo(int goodsId) throws DAOException {
-
-		ConnectionPoolFactory connectionPoolFactory = ConnectionPoolFactory.getInstance();
-		ConnectionPool connectionPool = connectionPoolFactory.getConnectionPool();
 
 		Connection con = null;
 		PreparedStatement ps = null;

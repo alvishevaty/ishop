@@ -23,4 +23,6 @@ public interface ProductDAO {
 	boolean goodsInfoUpdate(List<Parameter> updatedInfo) throws DAOException;
 
 	GoodsInfo goodsInfo(int goodsId) throws DAOException;
+
+	
 }

@@ -5,10 +5,12 @@ import java.util.Map;
 
 import by.home.project.controller.command.Command;
 import by.home.project.controller.command.impl.ChangeLocale;
+import by.home.project.controller.command.impl.Checkout;
 import by.home.project.controller.command.impl.DelFromBasket;
 import by.home.project.controller.command.impl.GetGoodsList;
 import by.home.project.controller.command.impl.GoToBasketPage;
 import by.home.project.controller.command.impl.GoToMainPage;
+import by.home.project.controller.command.impl.GoToOrderConfirmationPage;
 import by.home.project.controller.command.impl.GoToCatalogPage;
 import by.home.project.controller.command.impl.GoToRegistrationPage;
 import by.home.project.controller.command.impl.GoToSignInPage;
@@ -38,6 +40,8 @@ public class CommandProvider {
 		repository.put(CommandName.DELFROMBASKET, new DelFromBasket());
 		repository.put(CommandName.GOTOUSERINFOPAGE, new GoToUserInfoPage());
 		repository.put(CommandName.SHOWGOODSPAGE, new ShowGoodsPage());
+		repository.put(CommandName.CHECKOUT, new Checkout()); 
+		repository.put(CommandName.GOTOORDERCONFIRMATIONPAGE, new GoToOrderConfirmationPage());
 	}
 
 	public Command getCommand(String name) {

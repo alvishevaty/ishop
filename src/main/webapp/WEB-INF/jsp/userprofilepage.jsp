@@ -24,6 +24,7 @@
 		<jsp:include page="/WEB-INF/jsp/header.jsp" />
 	</header>
 	<main>
+	<div class="mainPage">
 		<div class="fullProfileContainer">
 			<div class="profileContainer">
 				<table>
@@ -48,6 +49,7 @@
 				</table>
 				
 			</div>
+		</div>
 		</div>
 	</main>
 	

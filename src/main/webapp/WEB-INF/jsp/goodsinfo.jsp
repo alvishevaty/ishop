@@ -7,23 +7,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<meta charset="utf-8">
-		<title><c:out value="${product.name}" /></title>
+<meta charset="utf-8">
+<title><c:out value="${product.name}" /></title>
 
-		<fmt:setLocale value="${sessionScope.local}" />
-		<fmt:setBundle basename="local" var="loc" />
+<fmt:setLocale value="${sessionScope.local}" />
+<fmt:setBundle basename="local" var="loc" />
 
-		<fmt:message bundle="${loc}" key="local.goods.price" var="price" />
-		<fmt:message bundle="${loc}" key="local.goods.description" var="description" />
-		<fmt:message bundle="${loc}" key="local.goods.brand" var="brand" />
-		<fmt:message bundle="${loc}" key="local.goods.size" var="size" />
-		<fmt:message bundle="${loc}" key="local.goods.season" var="season" />
-		<fmt:message bundle="${loc}" key="local.goods.itemNumber" var="itemNumber" />
-		<fmt:message bundle="${loc}" key="local.button.addToBasket" var="button_addToBasket" />
-		<fmt:message bundle="${loc}" key="local.catalog.Clothes" var="clothes" />
-		<fmt:message bundle="${loc}" key="local.catalog.Footwear" var="footwear" />
-		<fmt:message bundle="${loc}" key="local.catalog.Accessories" var="accessories" />
-		
+<fmt:message bundle="${loc}" key="local.goods.price" var="price" />
+<fmt:message bundle="${loc}" key="local.goods.description"
+	var="description" />
+<fmt:message bundle="${loc}" key="local.goods.brand" var="brand" />
+<fmt:message bundle="${loc}" key="local.goods.size" var="size" />
+<fmt:message bundle="${loc}" key="local.goods.season" var="season" />
+<fmt:message bundle="${loc}" key="local.goods.itemNumber"
+	var="itemNumber" />
+<fmt:message bundle="${loc}" key="local.button.addToBasket"
+	var="button_addToBasket" />
+<fmt:message bundle="${loc}" key="local.catalog.Clothes" var="clothes" />
+<fmt:message bundle="${loc}" key="local.catalog.Footwear" var="footwear" />
+<fmt:message bundle="${loc}" key="local.catalog.Accessories"
+	var="accessories" />
+
 </head>
 <body>
 	<header>
@@ -31,6 +35,7 @@
 	</header>
 
 	<main>
+
 		<div class="leftColumn">
 			<div class="categoryList">
 				<ul>
@@ -76,58 +81,73 @@
 				</ul>
 			</div>
 		</div>
+		<div class="mainPage">
 
-		<div class="goodsContainer">
+			<div class="goodsContainer">
 
-			<div class="goodsImg gCchild">
-				<img src="img/${product.id}.jpg" />
-			</div>
+				<div class="goodsImg gCchild">
+					<img src="img/${product.id}.jpg" />
+				</div>
 
-			<div class="goodsInfoColumn gCchild">
-				<div class="goodsHeader">
+				<div class="goodsInfoColumn gCchild">
+					<div class="goodsHeader">
+						<h2>
+							<c:out value="${product.name}" />
+						</h2>
+					</div>
+					<div class=goodsInfo>
 
-					<table class="goodsInfo">
-						<tr>
-							<td><h2>
-									<c:out value="${product.name}" />
-								</h2></td>
-						</tr>
-						<tr>
-							<td><h3>${price}:</h3></td>
-							<td><c:out value="${product.price}" /></td>
-						</tr>
-						<tr>
-							<td><h3>${description}:</h3></td>
-							<td><c:out value="${product.description}" /></td>
-						</tr>
-						<tr>
-							<td><h3>${brand}:</h3></td>
-							<td><c:out value="${product.manufacturer}" /></td>
-						</tr>
-						<tr>
-							<td><h3>${size}:</h3></td>
-							<td><c:out value="${product.size}" /></td>
-						</tr>
-						<tr>
-							<td><h3>${season}:</h3></td>
-							<td><c:out value="${product.season}" /></td>
-						</tr>
-						<tr>
-							<td><h3>${itemNumber}:</h3></td>
-							<td><c:out value="${product.vendorCode}" /></td>
-						</tr>
-						<tr>
-							<td>
-								<div class="basketbutton">
-									<form action="Controller" method="get">
-										<input type="hidden" name="command" value="putIntoBasket" />
-										<input type="hidden" name="good" value="${product.id}" /> 
-										<input class=button type="submit" value="${button_addToBasket}" />
-									</form>
-								</div>
-							</td>
-						</tr>
-					</table>
+						<div class=parameter>
+							<span>${price}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.price} BYN</span>
+						</div>
+						<br>
+						<div class=parameter>
+							<span>${description}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.description}</span>
+						</div>
+						<!-- <br> -->
+						<div class=parameter>
+							<span>${brand}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.manufacturer}</span>
+						</div>
+						<br>
+						<div class=parameter>
+							<span>${size}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.size}</span>
+						</div>
+						<br>
+						<div class=parameter>
+							<span>${season}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.season}</span>
+						</div>
+						<br>
+						<div class=parameter>
+							<span>${itemNumber}:</span>
+						</div>
+						<div class=parameterValue>
+							<span>${product.vendorCode}</span>
+						</div>
+						<br>
+						<div class="basketbutton">
+							<form action="Controller" method="get">
+								<input type="hidden" name="command" value="putIntoBasket" /> <input
+									type="hidden" name="good" value="${product.id}" /> <input
+									class=button type="submit" value="${button_addToBasket}" />
+							</form>
+						</div>
+
+					</div>
 				</div>
 			</div>
 		</div>

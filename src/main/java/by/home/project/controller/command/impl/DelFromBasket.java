@@ -22,6 +22,7 @@ public class DelFromBasket implements Command{
 	private List<Integer> goodsBasketList = new ArrayList<Integer>();
 	private int indexOfDelitedGoods;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

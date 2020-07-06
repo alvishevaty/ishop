@@ -32,7 +32,6 @@ public class SignIn implements Command {
 		HttpSession session = request.getSession(true);
 
 		try {
-
 			User user = userService.signIn(email, password);
 			session.setAttribute(ATTRIBUTE_NAME_USER, user);
 

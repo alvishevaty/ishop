@@ -11,9 +11,6 @@ public class RegistrationUser implements Serializable {
 	private String name;
 	private String surname;
 	private String phoneNumber;
-	
-	public RegistrationUser() {
-	}
 
 	public RegistrationUser(String email, String password, String name, String surname, String phoneNumber) {
 		this.email = email;

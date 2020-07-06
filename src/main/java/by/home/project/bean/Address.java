@@ -6,32 +6,25 @@ public class Address implements Serializable {
 
 	private static final long serialVersionUID = -7792202455566982680L;
 
-	private int id;
 	private String country;
 	private String city;
 	private String street;
 	private String house;
 	private String flat;
 	private String postCode;
+	private int userId;
 
 	public Address() {
 	}
 
-	public Address(String country, String city, String street, String house, String flat, String postCode) {
+	public Address(String country, String city, String street, String house, String flat, String postCode, int userId) {
 		this.country = country;
 		this.city = city;
 		this.street = street;
 		this.house = house;
 		this.flat = flat;
 		this.postCode = postCode;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.userId = userId;
 	}
 
 	public String getCountry() {
@@ -82,6 +75,14 @@ public class Address implements Serializable {
 		this.postCode = postCode;
 	}
 
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -90,9 +91,9 @@ public class Address implements Serializable {
 		result = prime * result + ((country == null) ? 0 : country.hashCode());
 		result = prime * result + ((flat == null) ? 0 : flat.hashCode());
 		result = prime * result + ((house == null) ? 0 : house.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((postCode == null) ? 0 : postCode.hashCode());
 		result = prime * result + ((street == null) ? 0 : street.hashCode());
+		result = prime * result + userId;
 		return result;
 	}
 
@@ -125,8 +126,6 @@ public class Address implements Serializable {
 				return false;
 		} else if (!house.equals(other.house))
 			return false;
-		if (id != other.id)
-			return false;
 		if (postCode == null) {
 			if (other.postCode != null)
 				return false;
@@ -137,13 +136,15 @@ public class Address implements Serializable {
 				return false;
 		} else if (!street.equals(other.street))
 			return false;
+		if (userId != other.userId)
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", country=" + country + ", city=" + city + ", street=" + street + ", house="
-				+ house + ", flat=" + flat + ", postCode=" + postCode + "]";
+		return "Address [country=" + country + ", city=" + city + ", street=" + street + ", house=" + house + ", flat="
+				+ flat + ", postCode=" + postCode + ", userId=" + userId + "]";
 	}
 
 }

@@ -15,6 +15,7 @@
 	
 
 		<fmt:message bundle="${loc}" key="local.registration.message.success" var="registration_success_message" />
+		<fmt:message bundle="${loc}" key="local.mainpage.message" var="home_page_message" />
 	
 	</head>
 	<body>
@@ -28,6 +29,9 @@
 				<c:if test="${param.registration == 'success'}">
 					<span class="successRegistrationMessage">${registration_success_message}</span>
 				</c:if>
+			</div>
+			<div class="welcomeMessageContainer">
+				<span class="welcomeMessage">${home_page_message}</span>
 			</div>
 		</main>
 	</body>
